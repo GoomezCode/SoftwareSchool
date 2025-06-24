@@ -240,7 +240,7 @@ public class Student {
     }
 
     public Double getNotas(){
-        Double somaNotas = null;
+        Double somaNotas = 0.0;
 
         for(Discipline disciple : disciplines){
             somaNotas += disciple.getNota();
@@ -249,13 +249,15 @@ public class Student {
     }
 
 
-    public Boolean getAprovado(){
+    public String getAprovado(){
         Double media = this.getNotas();
 
-        if(media >= 70){
-        return true;
+        if(media >=70){
+        return "Aprovado";
+        }else if(media >= 50){
+            return "Recuperação";
         }else{
-        return false;
+        return "Reprovado";
         }
     }
 
