@@ -13,7 +13,9 @@ public class Cadastro {
         int Escolha = JOptionPane.showOptionDialog(null, "Qual Cadastro você deseja fazer?", "Cadastro", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, ListEscolha, ListEscolha[0]);
         
         if(Escolha == 0){
-            Student();
+            for(int i = 1; i <= 2; i ++){
+                Student();
+            }
         }
         if(Escolha == 1){
             Employee();
@@ -22,8 +24,8 @@ public class Cadastro {
 
     }
 
+    public static DateStudent addStudent = new DateStudent();
     public static void Student(){
-        DateStudent addStudent = new DateStudent();
 
         String nome = JOptionPane.showInputDialog("Digite seu nome: ");
         String idade = JOptionPane.showInputDialog("Digite sua idade: ");
@@ -44,7 +46,7 @@ public class Cadastro {
         student.setResidencia(residencia);
         student.setSexo(sexo);
 
-        if(Integer.valueOf(idade) >=17){
+        if(Integer.valueOf(idade) <=17){
             JOptionPane.showMessageDialog(null,"Você e menor de Idade Temos que Adicionar seus Responsaveis");
 
             String nomeMae = JOptionPane.showInputDialog("Digite o Nome da Mãe: ");
@@ -73,6 +75,15 @@ public class Cadastro {
         }
 
         addStudent.getStudents().add(student);
+
+
+
+        int esccolhaLogin = JOptionPane.showConfirmDialog(null,"Deseja Fazer seu Login?", "Escolha Login", JOptionPane.YES_NO_OPTION);
+        if(esccolhaLogin == 0){
+            Login LoginStudent = new Login(); // he does the call to the Login to user (Ele faz a ligação para o Login do Usuario)
+            LoginStudent.main(null);
+        }
+
     }
 
     public static void Employee(){
