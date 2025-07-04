@@ -1,5 +1,7 @@
 package Class;
 
+import Constantes.StatusAl;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -253,11 +255,11 @@ public class Student {
         Double media = this.getNotas();
 
         if(media >=70){
-        return "Aprovado";
-        }else if(media >= 50){
-            return "Recuperação";
+            return StatusAl.APROVADO;
+        }if(media >= 50){
+            return StatusAl.RECUPERACAO;
         }else{
-        return "Reprovado";
+            return StatusAl.REPROVADO;
         }
     }
 
